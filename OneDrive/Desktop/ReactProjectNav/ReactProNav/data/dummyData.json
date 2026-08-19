@@ -1,0 +1,94 @@
+{
+  "schoolData": {
+    "students": [
+      {
+          "id": 1,
+          "Name": "Doremon",
+          "age": 12,
+          "priceFee": 12000,
+          "height": 100,
+          "weight": 35,
+          "details": "Doremon is an energetic student who enjoys sports and outdoor activities. He is known for his leadership qualities in group projects.",
+          "image": "http://localhost:3000/Doremon.png"
+        }
+      ,
+      {
+          "id": 2,
+          "Name": "Kasama",
+          "age": 8,
+          "priceFee": 9500,
+          "height": 85,
+          "weight": 28,
+          "details": "Kasama is a bright and curious learner who loves drawing and storytelling. He actively participates in class discussions.",
+          "image": "http://localhost:3000/Kasama.png"
+        }
+      ,
+      {
+          "id": 3,
+          "Name": "Mosow",
+          "age": 5,
+          "priceFee": 15000,
+          "height": 110,
+          "weight": 40,
+          "details": "Mosow is playful and creative, often coming up with imaginative ideas. He enjoys puzzles and building blocks.",
+          "image": "http://localhost:3000/Masow.png"
+        }
+      ,
+      {
+          "id": 4,
+          "Name": "Neani",
+          "age": 10,
+          "priceFee": 10500,
+          "height": 95,
+          "weight": 32,
+          "details": "Neani is hardworking and disciplined. She excels in mathematics and shows great interest in science experiments.",
+          "image": "http://localhost:3000/Neani.png"
+        }
+      ,
+      {
+          "id": 5,
+          "Name": "Nobita",
+          "age": 7,
+          "priceFee": 8700,
+          "height": 90,
+          "weight": 30,
+          "details": "Nobita is cheerful and friendly, always helping classmates. He enjoys playing cricket and reading adventure stories.",
+          "image": "http://localhost:3000/nobita.png"
+        }
+      ,
+      {
+          "id": 6,
+          "Name": "Phow",
+          "age": 6,
+          "priceFee": 9800,
+          "height": 88,
+          "weight": 29,
+          "details": "Phow is thoughtful and observant. He loves painting and has a keen interest in nature and animals.",
+          "image": "http://localhost:3000/Phow.png"
+        }
+      ,
+      {
+          "id": 7,
+          "Name": "ShinChan",
+          "age": 9,
+          "priceFee": 11200,
+          "height": 102,
+          "weight": 34,
+          "details": "ShinChan is enthusiastic about technology and computers. He often helps teachers with setting up digital tools.",
+          "image": "http://localhost:3000/Shinchan.png"
+        }
+      ,
+      {
+          "id": 8,
+          "Name": "ShiShuka",
+          "age": 11,
+          "priceFee": 12500,
+          "height": 108,
+          "weight": 36,
+          "details": "ShiShuka is confident and articulate. She enjoys debating and has won prizes in school competitions.",
+          "image": "http://localhost:3000/shizhuka.png"
+        }
+      
+    ]
+  }
+}
