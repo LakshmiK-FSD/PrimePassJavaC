@@ -87,6 +87,15 @@
           "weight": 36,
           "details": "ShiShuka is confident and articulate. She enjoys debating and has won prizes in school competitions.",
           "image": "http://localhost:3000/shizhuka.png"
+        }, {
+          "id": 9,
+          "Name": "Julie",
+          "age": 10,
+          "priceFee": 10500,
+          "height": 95,
+          "weight": 32,
+          "details": "Julie is hardworking and disciplined. She excels in mathematics and shows great interest in science experiments.",
+          "image": "http://localhost:3000/Julie.png"
         }
       
     ]
