@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @Data
-@JsonPropertyOrder({"id","movename","description","img","theatersIds","castIds","details" })
+@JsonPropertyOrder({"id","movename","description","img","castIds","details","theaters" })
 public class PrimepassModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,5 +30,4 @@ public class PrimepassModel {
     @JsonManagedReference
     @OneToMany(mappedBy ="primepassModel", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     public List<TheatersModel> theaters;
-
 }

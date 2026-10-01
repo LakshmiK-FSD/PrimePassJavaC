@@ -2,6 +2,7 @@ package com.lakshmikandan.primepass.service;
 
 import com.lakshmikandan.primepass.model.PrimepassModel;
 import com.lakshmikandan.primepass.model.TheatersModel;
+import com.lakshmikandan.primepass.repository.DateRepository;
 import com.lakshmikandan.primepass.repository.PrimepassRepository;
 import com.lakshmikandan.primepass.repository.TheatersRepository;
 import lombok.Data;
@@ -17,6 +18,8 @@ public class PrimepassService {
     private PrimepassRepository primepassRepo;
     @Autowired
     private TheatersRepository theatersRepo;
+    @Autowired
+    private DateRepository datRepo;
     public List<PrimepassModel> getData() {
         List<PrimepassModel> hello=primepassRepo.findAll();
      return hello;
@@ -32,5 +35,9 @@ public class PrimepassService {
     public String adder(PrimepassModel prm) {
         primepassRepo.save(prm);
         return "added";
+    }
+
+    public List<String> findDates() {
+        return datRepo.findByDistinctDates();
     }
 }

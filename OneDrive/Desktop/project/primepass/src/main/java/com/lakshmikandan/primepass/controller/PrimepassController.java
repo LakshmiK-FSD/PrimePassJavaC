@@ -23,12 +23,16 @@ public class PrimepassController {
     public PrimepassModel idMovie(@PathVariable int id){
         return primepass.idMovie(id);
     }
-    @GetMapping("/{theatid}")
+    @GetMapping("/theater/{theatid}")
     public TheatersModel theatersModel(@PathVariable("theatid") int theatid){
        return primepass.theater(theatid);
     }
     @PostMapping("/movies")
     public String adder(@RequestBody PrimepassModel prm){
        return primepass.adder(prm);
+    }
+    @GetMapping("/theatdate")
+    public List<String> findDates(){
+       return primepass.findDates();
     }
 }
