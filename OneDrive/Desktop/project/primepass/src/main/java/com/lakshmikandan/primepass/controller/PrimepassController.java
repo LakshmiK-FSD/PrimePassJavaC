@@ -1,7 +1,6 @@
 package com.lakshmikandan.primepass.controller;
 
-import com.lakshmikandan.primepass.model.PrimepassModel;
-import com.lakshmikandan.primepass.model.TheatersModel;
+import com.lakshmikandan.primepass.model.*;
 import com.lakshmikandan.primepass.service.PrimepassService;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +33,17 @@ public class PrimepassController {
     @GetMapping("/theatdate")
     public List<String> findDates(){
        return primepass.findDates();
+    }
+    @GetMapping("/dates/{date}")
+    public DateModel dateModel(@PathVariable int date){
+       return primepass.dateModel(date);
+    }
+    @GetMapping("/time/{timeId}")
+    public ShowsModel timeModel(@PathVariable("timeId") int tmId){
+       return primepass.timeModel(tmId);
+    }
+    @GetMapping("/viewclass/{clsId}")
+    public ViewclsModel viewcls(@PathVariable int clsId){
+       return primepass.viewcls(clsId);
     }
 }

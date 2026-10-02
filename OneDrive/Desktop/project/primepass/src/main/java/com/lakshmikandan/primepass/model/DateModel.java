@@ -16,10 +16,10 @@ public class DateModel {
     int dateId;
     String date;
     @JsonManagedReference
-    @OneToMany(mappedBy ="dates", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy ="dates", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     public List<ShowsModel> shows;
     @JsonBackReference
-    @ManyToOne(cascade =CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToOne(cascade =CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name ="theaters_id")
     public TheatersModel theatersModel;
 }

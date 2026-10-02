@@ -18,8 +18,7 @@ public class SeatModel {
     String bookedBy;
     String bookingTime;
     @JsonBackReference
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="seatrow_id")
     public SeatsrowModel seatsrow;
-
 }

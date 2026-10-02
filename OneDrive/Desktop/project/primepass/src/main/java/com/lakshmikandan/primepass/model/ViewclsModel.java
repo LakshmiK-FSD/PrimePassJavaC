@@ -18,11 +18,11 @@ public class ViewclsModel {
     String clsName;
     int amount;
     @JsonBackReference
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "shows_id")
     public ShowsModel showsModel;
     @JsonManagedReference
-    @OneToMany(mappedBy = "viewcls", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "viewcls", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     public List<SeatsrowModel> seats;
 
 }

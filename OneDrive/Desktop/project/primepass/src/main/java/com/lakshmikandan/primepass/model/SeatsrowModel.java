@@ -17,10 +17,10 @@ public class SeatsrowModel {
     int seatrid;
     String rowname;
     @JsonManagedReference
-    @OneToMany(mappedBy = "seatsrow", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "seatsrow", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     public List<SeatModel> clrow;
     @JsonBackReference
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "viewcls_id")
     public ViewclsModel viewcls;
 }

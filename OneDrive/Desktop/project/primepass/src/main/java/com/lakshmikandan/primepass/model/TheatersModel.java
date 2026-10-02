@@ -13,22 +13,23 @@ import java.util.Set;
 @Entity
 @Data
 @NoArgsConstructor
-@JsonPropertyOrder({"theatid","theaterName","cancelation","theaterAddress","dates"})
+@JsonPropertyOrder({"theatid","theaterName","theaterimg","cancelation","theaterAddress","dates"})
 public class TheatersModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int theatid;
     String theaterName;
     String cancelation;
+    String theaterimg;
     @ElementCollection @CollectionTable(name = "address",joinColumns = @JoinColumn(name = "theaters_id"))
             @Column(name = "location")
     public Set<String> theaterAddress;
     @JsonManagedReference
-    @OneToMany(mappedBy ="theatersModel", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy ="theatersModel", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     public List<DateModel> dates;
 
     @JsonBackReference
-    @ManyToOne(cascade =CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToOne(cascade =CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name ="primepass_id")
     public PrimepassModel primepassModel;
 

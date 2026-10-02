@@ -23,7 +23,7 @@ public class MovieDetailsModel {
     String genres;
     String releaseDate;
     @JsonBackReference
-    @OneToOne(mappedBy = "details",fetch = FetchType.EAGER)
+    @OneToOne(mappedBy = "details",fetch = FetchType.LAZY)
     public PrimepassModel primepass;
 
 }

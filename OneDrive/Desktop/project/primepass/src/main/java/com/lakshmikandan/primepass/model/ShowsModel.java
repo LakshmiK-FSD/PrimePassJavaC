@@ -17,11 +17,11 @@ public class ShowsModel {
     int timeId;
     String time;
     @JsonBackReference
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "dates_id")
     public DateModel dates;
     @JsonManagedReference
-    @OneToMany(mappedBy = "showsModel", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "showsModel", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     public List<ViewclsModel> viewcls;
 
 

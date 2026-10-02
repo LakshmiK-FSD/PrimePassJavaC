@@ -24,10 +24,10 @@ public class PrimepassModel {
 //            public List<String> theaterIds;
     String castIds;
     @JsonManagedReference
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name="detail_id")
     public MovieDetailsModel details ;
     @JsonManagedReference
-    @OneToMany(mappedBy ="primepassModel", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy ="primepassModel", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     public List<TheatersModel> theaters;
 }
