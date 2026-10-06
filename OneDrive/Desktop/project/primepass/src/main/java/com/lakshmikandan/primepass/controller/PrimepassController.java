@@ -10,7 +10,8 @@ import java.util.List;
 
 @RestController
 @Data
-@CrossOrigin("http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5173")
+@RequestMapping("/users")
 public class PrimepassController {
     @Autowired
     private PrimepassService primepass;
@@ -46,4 +47,5 @@ public class PrimepassController {
     public ViewclsModel viewcls(@PathVariable int clsId){
        return primepass.viewcls(clsId);
     }
+
 }
