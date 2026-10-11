@@ -5,12 +5,9 @@ import com.lakshmikandan.primepass.repository.UsersRepository;
 import com.lakshmikandan.primepass.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
-
 import java.util.Map;
 import java.util.Optional;
 
@@ -26,6 +23,7 @@ public class AuthService {
         String userName = user.get("username");
         String password = user.get("password");
         String email = user.get("email");
+        String role = user.get("role");
         long phoneFNo ;
         try {
             phoneFNo= Long.parseLong(user.get("phoneNo"));
@@ -33,10 +31,13 @@ public class AuthService {
         catch (NumberFormatException nfException){
             return ResponseEntity.status(HttpStatus.CONFLICT).body(nfException);
         }
+        if(role == null){
+            role = "USER";
+        }
         if (usersRepository.findByEmail(email).isPresent()){
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Already Existed");
         }
-        UsersModel userC =UsersModel.builder().email(email).userName(userName).password(encoder.encode(password)).phoneNo(phoneFNo).build();
+        UsersModel userC =UsersModel.builder().email(email).role(role).userName(userName).password(encoder.encode(password)).phoneNo(phoneFNo).build();
         usersRepository.save(userC);
         return ResponseEntity.status(HttpStatus.CREATED).body("Succsess fully Registered");
     }
@@ -48,7 +49,8 @@ public class AuthService {
         if (userO.isPresent()){
             UsersModel userf =userO.get();
             if (encoder.matches(password,userf.getPassword())){
-                return ResponseEntity.status(HttpStatus.ACCEPTED).body(Map.of("Token",jwtUtil.tokenGenerator(email)));
+                return ResponseEntity.status(HttpStatus.ACCEPTED).body(Map.of("Token",jwtUtil.tokenGenerator(email),"userName",userf.getUserName(),"id",userf.getId(),
+                "phNo",userf.getPhoneNo(),"email",userf.getEmail(),"role",userf.getRole()));
             }
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User Not Found");

@@ -47,5 +47,9 @@ public class PrimepassController {
     public ViewclsModel viewcls(@PathVariable int clsId){
        return primepass.viewcls(clsId);
     }
+    @GetMapping("/search")
+    public List<PrimepassModel> search(@RequestParam("srh") String search){
+       return primepass.search(search);
+    }
 
 }

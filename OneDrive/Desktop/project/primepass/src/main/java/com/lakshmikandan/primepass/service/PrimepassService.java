@@ -48,4 +48,8 @@ public class PrimepassService {
     public ViewclsModel viewcls(int clsId) {
         return viewclsRepo.findById(clsId).orElse(null);
     }
+
+    public List<PrimepassModel> search(String search) {
+        return primepassRepo.findBySearch(search);
+    }
 }

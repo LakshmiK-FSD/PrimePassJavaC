@@ -29,7 +29,7 @@ public class PrimepassConfiguration {
         http.csrf(customizer->customizer.disable())
                 .authorizeHttpRequests(request->request
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                        .requestMatchers("/users/**").hasAnyRole("ADMIN","USER")
+                        .requestMatchers("/users/**").permitAll()
                         .requestMatchers("/register/**").permitAll()
                         .requestMatchers("/login/**").permitAll()
                         .anyRequest().authenticated())
