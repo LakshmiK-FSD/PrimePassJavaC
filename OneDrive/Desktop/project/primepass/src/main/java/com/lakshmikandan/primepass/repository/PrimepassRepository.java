@@ -10,7 +10,6 @@ import java.util.List;
 
 @Repository
 public interface PrimepassRepository extends JpaRepository<PrimepassModel,Integer> {
-
-   @Query(value = "select * from primepass_model where movename like CONCAT('%',:search,'%') order by movename ASC ", nativeQuery = true)
+   @Query(value = "select * from primepass_model where movename like CONCAT('%',:search,'%');", nativeQuery = true)
     List<PrimepassModel> findBySearch(@Param("search") String search);
 }

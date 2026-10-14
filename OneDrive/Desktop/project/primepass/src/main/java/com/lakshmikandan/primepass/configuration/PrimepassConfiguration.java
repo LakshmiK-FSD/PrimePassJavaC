@@ -21,10 +21,6 @@ import java.util.List;
 public class PrimepassConfiguration {
 
     @Bean
-    public LocalDate today(){
-        return LocalDate.now();
-    }
-    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http, AuthFilterChain authFilter){
         http.csrf(customizer->customizer.disable())
                 .authorizeHttpRequests(request->request
@@ -42,6 +38,8 @@ public class PrimepassConfiguration {
     public BCryptPasswordEncoder encoder(){
         return new BCryptPasswordEncoder(12);
     }
+
+
 //    @Bean
 //    public CorsConfigurationSource corsConfig(){
 //        CorsConfiguration config = new CorsConfiguration();

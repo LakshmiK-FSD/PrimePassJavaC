@@ -4,9 +4,13 @@ import com.lakshmikandan.primepass.model.*;
 import com.lakshmikandan.primepass.service.PrimepassService;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @Data
@@ -49,7 +53,11 @@ public class PrimepassController {
     }
     @GetMapping("/search")
     public List<PrimepassModel> search(@RequestParam("srh") String search){
+
        return primepass.search(search);
     }
-
+    @PutMapping("/booking")
+    public ResponseEntity<?> booking(@RequestBody Map<String,List<String>> book){
+       return primepass.booking(book);
+    }
 }
