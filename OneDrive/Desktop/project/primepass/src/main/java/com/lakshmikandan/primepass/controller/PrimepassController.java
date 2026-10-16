@@ -60,4 +60,14 @@ public class PrimepassController {
     public ResponseEntity<?> booking(@RequestBody Map<String,List<String>> book){
        return primepass.booking(book);
     }
+
+    @GetMapping("/seats")
+    public List<SeatModel> prizeSeats(@RequestParam List<String> seats){
+       return  primepass.prizeSeats(seats);
+    }
+
+    @GetMapping("/passes")
+    public List<SeatModel> myPasses(@RequestHeader("Authorization") String bearer){
+       return primepass.myPasses(bearer);
+    }
 }

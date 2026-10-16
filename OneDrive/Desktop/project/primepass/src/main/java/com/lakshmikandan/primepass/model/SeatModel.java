@@ -13,6 +13,7 @@ public class SeatModel {
     int setid;
     String seatId;
     int number;
+    int prize;
     String rowId;
     String status;
     String bookedBy;

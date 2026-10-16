@@ -44,7 +44,7 @@ public class AuthService {
 
     public ResponseEntity<?> login(Map<String, String> user) {
         String password = user.get("password");
-        String email = user.get("email");
+        String email = user.get("email").trim();
         Optional<UsersModel> userO = usersRepository.findByEmail(email);
         if (userO.isPresent()){
             UsersModel userf =userO.get();

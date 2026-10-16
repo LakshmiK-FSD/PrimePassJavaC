@@ -26,6 +26,7 @@ public class PrimepassConfiguration {
                 .authorizeHttpRequests(request->request
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/users/**").permitAll()
+                        .requestMatchers("/passes").hasAnyRole("ADMIN","USER")
                         .requestMatchers("/register/**").permitAll()
                         .requestMatchers("/login/**").permitAll()
                         .anyRequest().authenticated())

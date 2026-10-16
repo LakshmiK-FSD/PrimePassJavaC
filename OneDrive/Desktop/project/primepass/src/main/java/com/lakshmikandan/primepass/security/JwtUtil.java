@@ -14,7 +14,7 @@ import java.util.Date;
 @Component
 public class JwtUtil {
     private static final String SECRET_KEY="This is my Primepass website Booking Website for envents";
-    private static final long EXPIRATION =1000*60*60;
+    private static final long EXPIRATION =1000*60*60*24;
     private static final Key secretKey = Keys.hmacShaKeyFor(SECRET_KEY.getBytes(StandardCharsets.UTF_8));
 
     public String tokenGenerator(String email){
